@@ -8,7 +8,8 @@
 ## Location of stream protocol files
 epicsEnvSet("ENGINEER",                 "kgofron x5283")
 epicsEnvSet("LOCATION",                 "XF11ID-M3")
-epicsEnvSet("STREAM_PROTOCOL_PATH",     "protocol")
+#epicsEnvSet("STREAM_PROTOCOL_PATH",     "protocol")
+epicsEnvSet("STREAM_PROTOCOL_PATH",     "db")
 
 epicsEnvSet("Sys",   			"XF:11ID-M3")
 epicsEnvSet("Dev",   			"{Hyrel:1}")
