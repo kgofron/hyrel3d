@@ -15,6 +15,7 @@ DBD += hyrel3d.dbd
 # hyrel3d.dbd will be made up from these files:
 hyrel3d_DBD += base.dbd
 hyrel3d_DBD += asyn.dbd
+hyrel3d_DBD += calc.dbd
 hyrel3d_DBD += stream.dbd
 hyrel3d_DBD += drvAsynSerialPort.dbd
 hyrel3d_DBD += drvAsynIPPort.dbd
@@ -42,7 +43,7 @@ hyrel3d_SRCS_vxWorks += -nil-
 #hyrel3d_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
 # Link in the code from the support library
-hyrel3d_LIBS += asyn stream 
+hyrel3d_LIBS += asyn stream calc
 hyrel3d_LIBS += devIocStats autosave caPutLog
 
 # Finally link to the EPICS Base libraries

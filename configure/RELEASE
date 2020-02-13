@@ -27,6 +27,7 @@ SUPPORT=/epics/support
 #MODULES = /path/to/modules
 #MYMODULE = $(MODULES)/my-module
 ASYN=$(SUPPORT)/asyn
+CALC=$(SUPPORT)/calc
 STREAM=$(SUPPORT)/stream
 DEVIOCSTATS=$(SUPPORT)/iocStats
 AUTOSAVE=$(SUPPORT)/autosave
