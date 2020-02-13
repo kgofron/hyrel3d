@@ -14,6 +14,14 @@ DBD += hyrel3d.dbd
 
 # hyrel3d.dbd will be made up from these files:
 hyrel3d_DBD += base.dbd
+hyrel3d_DBD += asyn.dbd
+hyrel3d_DBD += stream.dbd
+hyrel3d_DBD += drvAsynSerialPort.dbd
+hyrel3d_DBD += drvAsynIPPort.dbd
+hyrel3d_DBD += system.dbd
+hyrel3d_DBD += devIocStats.dbd
+hyrel3d_DBD += asSupport.dbd
+hyrel3d_DBD += caPutLog.dbd
 
 # Include dbd files from all support applications:
 #hyrel3d_DBD += xxx.dbd
