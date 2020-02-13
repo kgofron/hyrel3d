@@ -1,0 +1,131 @@
+locktimeout = 5000;
+replytimeout = 500;
+readtimeout  = 50;
+writetimeout = 100;
+extrainput   = Ignore;
+MaxInput = 0;
+terminator = LF;
+
+# Query firmware version
+getFwVer {
+	out "!#@%<crc16snd>";
+	in  "!%#s";
+}
+
+# Query/Update fillm parameters
+getFilmPar {
+	out "!\%A\$1?%<crc16snd>";
+	in  "!%#s";
+}
+
+setFilmPar {
+	out "!%(\$1Val:CmdA_Len-I.VAL)1s%(\$1Val:CmdA-Buf.VAL)s%<crc16snd>";
+	in  "!$A%<crc16rev>";
+}
+
+# Query/Update system 1 parameters
+getSys1Par {
+	out "!$B?%<crc16snd>";
+	in  "!%#s";
+}
+
+setSys1Par {
+	out "!%(\$1Val:CmdB_Len-I.VAL)1c%(\$1Val:CmdB-Buf.VAL)s%<crc16snd>";
+	in  "!$A%<crc16rev>";
+}
+
+# Query/Update system 2 parameters
+getSys2Par {
+	out "!$C?%<crc16snd>";
+	in  "!%#s";
+}
+
+setSys2Par {
+	out "!%(\$1Val:CmdC_Len-I.VAL)1c%(\$1Val:CmdC-Buf.VAL)s%<crc16snd>";
+	in  "!$A%<crc16rev>";
+}
+
+# Update active film
+setActvFilm {
+	out "!%(\$1Val:CmdD_Len-I.VAL)1cD%(\$1Num:ActvFilm-Sel.VAL)s%<crc16snd>";
+	in  "!$A%<crc16rev>";
+}
+
+# Query the number of channels installed
+getChanNum {
+	out "!#J%<crc16snd>";
+	in  "!\%A%d%<crc16rev>";
+}
+
+# Read the current rate for a sensor
+getSensorRate {
+	out "!\%L\$1?%<crc16snd>";
+	in  "!*A %f %<crc16rev>";
+}
+
+# Read the current average rate
+getAvgRate {
+	out "!#M%<crc16snd>";
+	in  "!*A %f %<crc16rev>";
+}
+
+# Read the current thickness for a sensor
+getSensorThick {
+	out "!$N\$1%<crc16snd>";
+	in  "!+A %f %<crc16rev>";
+}
+
+# Read the current average thickness
+getAvgThick {
+	out "!#O%<crc16snd>";
+	in  "!+A %f %<crc16rev>";
+}
+
+# Read the current frequency for a sensor
+getSensorFreq {
+	out "!$P\$1%<crc16snd>";
+	in  "!/A%f%<crc16rev>";
+}
+
+# Read cystal life for a sensor
+getSensorLife {
+	out "!$R\$1%<crc16snd>";
+	in  "!*A %f%<crc16rev>";
+}
+
+# Zero average thickness and rate
+zroThickRate {
+	out "!#S%<crc16snd>";
+	in  "!$A%<crc16rev>";
+}
+
+# Zero time
+zroTime {
+	out "!#T%<crc16snd>";
+	in  "!$A%<crc16rev>";
+}
+
+# Read the source shutter state
+getShutterSts {
+	out "!$U?%<crc16snd>";
+	in  "!\%A%{0|1}%<crc16rev>";
+}
+
+# Open/close the source shutter
+setShutterSts {
+	out "!$U%{0|1}%<crc16snd>";
+	in  "!$A%<crc16rev>";
+}
+
+# Read the status of the power up reset flag
+getPU_ResetFlag {
+	out "!#Y%<crc16snd>";
+	in  "!\%A%{0|1}%<crc16rev>";
+}
+
+# Default all fim and system parameters
+setDefault {
+	out "!#Z%<crc16snd>";
+	in  "!$A%<crc16rev>";
+}
+
