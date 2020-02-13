@@ -21,9 +21,17 @@
 # Build variables that are NOT used in paths should be set in
 # the CONFIG_SITE file.
 
+SUPPORT=/epics/support
+
 # Variables and paths to dependent modules:
 #MODULES = /path/to/modules
 #MYMODULE = $(MODULES)/my-module
+ASYN=$(SUPPORT)/asyn
+STREAM=$(SUPPORT)/stream
+DEVIOCSTATS=$(SUPPORT)/iocStats
+AUTOSAVE=$(SUPPORT)/autosave
+CAPUTLOG=$(SUPPORT)/caPutLog
+
 
 # If using the sequencer, point SNCSEQ at its top directory:
 #SNCSEQ = $(MODULES)/seq-ver
