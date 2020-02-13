@@ -23,6 +23,8 @@ hyrel3d_DBD += devIocStats.dbd
 hyrel3d_DBD += asSupport.dbd
 hyrel3d_DBD += caPutLog.dbd
 
+#hyrel3d_DBD += aSubRecord.dbd
+
 # Include dbd files from all support applications:
 #hyrel3d_DBD += xxx.dbd
 
@@ -38,6 +40,10 @@ hyrel3d_SRCS_vxWorks += -nil-
 
 # Add support from base/src/vxWorks if needed
 #hyrel3d_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
+
+# Link in the code from the support library
+hyrel3d_LIBS += asyn stream 
+hyrel3d_LIBS += devIocStats autosave caPutLog
 
 # Finally link to the EPICS Base libraries
 hyrel3d_LIBS += $(EPICS_BASE_IOC_LIBS)
