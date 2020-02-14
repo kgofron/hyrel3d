@@ -129,3 +129,15 @@ setDefault {
 	in  "!$A%<crc16rev>";
 }
 
+# Set heat off
+setHeat {
+#    out "M104 S\$1 T12%<ncrc8>";
+	out "\9M104 S0 T12\n%<ncrc8>";
+}
+
+# Set heat on/off
+setHeatMod {
+#	out "\9M%(\$1M-SP.VAL)d S%(\$1T-SP.VAL)d T%(\$1H-SP.VAL)d%<ncrc8>";
+#	out "\9M%(\$1M-SP.VAL)d S%(\$1T-SP.VAL)d T%(\$1H-SP.VAL)d";
+	out "\9M%(\$1M-SP.VAL)d S%(\$1SetHeat.VAL)d T%(\$1H-SP.VAL)d";
+}

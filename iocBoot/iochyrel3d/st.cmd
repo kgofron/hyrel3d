@@ -30,6 +30,7 @@ drvAsynIPPortConfigure("$(SYSPORT)","192.168.1.51:4001")
 
 ## Load record instances
 #dbLoadRecords("../../db/devhyrel3d.db","P=$(Sys),R=$(Dev),PORT=$(SYSPORT),A=0,user=kaz")
+dbLoadRecords("../../db/hyrel3d.db","Sys=$(Sys),Dev=$(Dev),PORT=$(SYSPORT),A=0,user=kaz")
 dbLoadRecords("../../db/asynRecord.db")
 
 iocInit()
