@@ -8,8 +8,8 @@
 ## Location of stream protocol files
 epicsEnvSet("ENGINEER",                 "kgofron x5283")
 epicsEnvSet("LOCATION",                 "XF11ID-M3")
-#epicsEnvSet("STREAM_PROTOCOL_PATH",     "protocol")
-epicsEnvSet("STREAM_PROTOCOL_PATH",     "db")
+epicsEnvSet("STREAM_PROTOCOL_PATH",     "../../protocol")
+#epicsEnvSet("STREAM_PROTOCOL_PATH",     "../../db")
 
 epicsEnvSet("Sys",   			"XF:11ID-M3")
 epicsEnvSet("Dev",   			"{Hyrel:1}")
@@ -25,8 +25,11 @@ epicsEnvSet("EPICS_CA_ADDR_LIST",	"192.168.1.255")
 dbLoadDatabase("../../dbd/hyrel3d.dbd",0,0)
 hyrel3d_registerRecordDeviceDriver(pdbbase) 
 
+## Configure serial port for PS controller
+drvAsynIPPortConfigure("$(SYSPORT)","192.168.1.51:4001")
+
 ## Load record instances
-dbLoadRecords("../../db/devhyrel3d.db","P=$(Sys),R=$(Dev),PORT=$(SYSPORT),A=0,user=kaz")
+#dbLoadRecords("../../db/devhyrel3d.db","P=$(Sys),R=$(Dev),PORT=$(SYSPORT),A=0,user=kaz")
 dbLoadRecords("../../db/asynRecord.db")
 
 iocInit()
