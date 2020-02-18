@@ -139,5 +139,5 @@ setHeat {
 setHeatMod {
 #	out "\9M%(\$1M-SP.VAL)d S%(\$1T-SP.VAL)d T%(\$1H-SP.VAL)d%<ncrc8>";
 #	out "\9M%(\$1M-SP.VAL)d S%(\$1T-SP.VAL)d T%(\$1H-SP.VAL)d";
-	out "\9M%(\$1M-SP.VAL)d S%(\$1SetHeat.VAL)d T%(\$1H-SP.VAL)d";
+	out "M%(\$1M-SP.VAL)d S%(\$1SetHeat.VAL)d T%(\$1H-SP.VAL)d";
 }
