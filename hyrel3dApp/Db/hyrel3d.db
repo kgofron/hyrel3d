@@ -1,0 +1,40 @@
+record(longout, "$(Sys)$(Dev)SetHeat")
+{
+    field(DESC, "SCPI enable event status")
+    field(DTYP, "stream")
+    field(OUT,  "@hyrel.proto setHeatMod($(Sys)$(Dev)) $(PORT) $(A)")
+#    field(OUT,  "@hyrel.proto setHeat(0) $(PORT) $(A)")
+}
+
+# Set temperature
+record(ao, "$(Sys)$(Dev)T-SP")
+{
+	field(DESC, "Set Head Temperature")
+	field(EGU,  "C")
+	field(PREC, "0")
+	field(DRVL, -1)
+	field(DRVH, 60)
+	field(VAL,  50)
+}
+
+# Set module
+record(ao, "$(Sys)$(Dev)M-SP")
+{
+	field(DESC, "Set M104 module")
+	field(EGU,  "M")
+	field(PREC, "0")
+	field(DRVL, 1)
+	field(DRVH, 200)
+	field(VAL,  104)
+}
+
+# Set head
+record(ao, "$(Sys)$(Dev)H-SP")
+{
+	field(DESC, "Set T12 head")
+	field(EGU,  "T12")
+	field(PREC, "0")
+	field(DRVL, 1)
+	field(DRVH, 20)
+	field(VAL,  12)
+}
