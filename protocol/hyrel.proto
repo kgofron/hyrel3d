@@ -129,15 +129,20 @@ setDefault {
 	in  "!$A%<crc16rev>";
 }
 
-# Set heat off
+# Set heat on/off, 'M104 S50 T12\LF' / 'M104 S0 T12\LF'
 setHeat {
-#    out "M104 S\$1 T12%<ncrc8>";
-	out "\9M104 S0 T12\n%<ncrc8>";
+	out "M%(\$1M-SP.VAL)d S%(\$1SetHeat.VAL)d T%(\$1H-SP.VAL)d";	
 }
 
-# Set heat on/off
+# Set heat on/off, '\9' is visible in internal commands as 1st char, and moves it to the front of the queue.
 setHeatMod {
 #	out "\9M%(\$1M-SP.VAL)d S%(\$1T-SP.VAL)d T%(\$1H-SP.VAL)d%<ncrc8>";
 #	out "\9M%(\$1M-SP.VAL)d S%(\$1T-SP.VAL)d T%(\$1H-SP.VAL)d";
 	out "M%(\$1M-SP.VAL)d S%(\$1SetHeat.VAL)d T%(\$1H-SP.VAL)d";
 }
+
+# Set extrude	# 'M723/M722 T[head] S[rate] E[quantity] {P[store]}', e.g. 'M723 T12 S1000 E6400'
+setExtrude {
+	out "M%(\$1M-SP.VAL)d T%(\$1H-SP.VAL)d S%(\$1Rate-SP.VAL)d E%(\$1Qty-SP.VAL)d";	
+}
+
