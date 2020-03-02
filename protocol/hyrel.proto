@@ -130,6 +130,7 @@ setDefault {
 }
 
 # Set heat on/off, 'M104 S50 T12\LF' / 'M104 S0 T12\LF'
+# '\9' is visible in internal commands as 1st char, and moves commands to the front of the queue. Do not use - No effect on EPICS.
 setHeat {
 	out "M%(\$1M-SP.VAL)d S%(\$1SetHeat.VAL)d T%(\$1H-SP.VAL)d";	
 }
@@ -142,7 +143,7 @@ setHeatMod {
 }
 
 # Set extrude	# 'M723/M722 T[head] S[rate] E[quantity] {P[store]}', e.g. 'M723 T12 S1000 E6400'
-setExtrude {
-	out "M%(\$1M-SP.VAL)d T%(\$1H-SP.VAL)d S%(\$1Rate-SP.VAL)d E%(\$1Qty-SP.VAL)d";	
+setRate {
+	out "M%(\$1M7-SP.VAL)d T%(\$1H-SP.VAL)d S%(\$1SetRate.VAL)d E%(\$1Qty-SP.VAL)d";	
 }
 

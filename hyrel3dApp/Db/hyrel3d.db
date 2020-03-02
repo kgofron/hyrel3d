@@ -2,20 +2,20 @@ record(longout, "$(Sys)$(Dev)SetHeat")
 {
     field(DESC, "SCPI enable event status")
     field(DTYP, "stream")
-    field(OUT,  "@hyrel.proto setHeatMod($(Sys)$(Dev)) $(PORT) $(A)")
-#    field(OUT,  "@hyrel.proto setHeat(0) $(PORT) $(A)")
-}
+    field(OUT,  "@hyrel.proto setHeat($(Sys)$(Dev)) $(PORT) $(A)")
+	field(DRVH, 100)
+	}
 
 # Set temperature
-record(ao, "$(Sys)$(Dev)T-SP")
-{
-	field(DESC, "Set Head Temperature")
-	field(EGU,  "C")
-	field(PREC, "0")
-	field(DRVL, -1)
-	field(DRVH, 60)
-	field(VAL,  50)
-}
+#record(ao, "$(Sys)$(Dev)T-SP")
+#{
+#	field(DESC, "Set Head Temperature")
+#	field(EGU,  "C")
+#	field(PREC, "0")
+#	field(DRVL, -1)
+#	field(DRVH, 60)
+#	field(VAL,  50)
+#}
 
 # Set module
 record(ao, "$(Sys)$(Dev)M-SP")
@@ -35,6 +35,52 @@ record(ao, "$(Sys)$(Dev)H-SP")
 	field(EGU,  "Tcode")
 	field(PREC, "0")
 	field(DRVL, 1)
-	field(DRVH, 20)
+#	field(DRVH, 20)
 	field(VAL,  12)
 }
+
+# PV records related to extrusion rate
+
+record(longout, "$(Sys)$(Dev)SetRate")
+{
+    field(DESC, "SCPI enable event status")
+    field(DTYP, "stream")
+    field(OUT,  "@hyrel.proto setRate($(Sys)$(Dev)) $(PORT) $(A)")
+}
+
+# Set M723-code for extrusion
+record(ao, "$(Sys)$(Dev)M7-SP")
+{
+	field(DESC, "Set M723 module")
+	field(EGU,  "Mcode")
+	field(PREC, "0")
+	field(DRVL, 1)
+	field(DRVH, 800)
+	field(VAL,  723)
+}
+
+# Set extrusion quantity in motor steps, 200 x 32=6400 for full rotation
+record(ao, "$(Sys)$(Dev)Qty-SP")
+{
+	field(DESC, "Set amount")
+	field(EGU,  "uL")
+	field(PREC, "0")
+	field(DRVL, 1)
+#	field(DRVH, 6400)
+	field(VAL,  6400)
+}
+
+# Prime: set M722-code for extrusion
+
+record(ao, "$(Sys)$(Dev)M722-SP")
+{
+	field(DESC, "Set M722 module")
+	field(EGU,  "Mcode")
+	field(PREC, "0")
+	field(DRVL, 1)
+	field(DRVH, 800)
+	field(VAL,  722)
+}
+
+# Unprime: set M721-code
+# Unsolicited RT :T12 25 0 0 0
