@@ -1,3 +1,13 @@
+# ThingyAggregatorIOC
+Author: Kazimierz Gofron  
+Created: March 5, 2020  
+Last Updated: March 5, 2020   
+Copyright (c): 2019-2020 Brookhaven National Laboratory  
+
+
+**An EPICS IOC for a Hyrel 3D printer**
+
+
 # hyrel3d
 HYREL3D printer
 
@@ -26,9 +36,9 @@ M723 S500 E65536 T12
 
 S500 - Speed
 E65535 - extrude pulses
-M721 - retract G-conde function
-M722 -
-M723 -
+M721 - Unprime, retract G-conde function
+M722 - Prime
+M723 - Run
 P - do not perform the command, just store settings
 
 M723 T[head] S[rate] E[quantity] P[store]
@@ -36,10 +46,8 @@ M723 T[head] S[rate] E[quantity] P[store]
 Try
 M722 T12 S1000 E6400
 
-H
 
-
-NOTE: Remember to install resistors for each head connector.
+NOTE: Remember to install resistors for each head connector on Canbus.
 The T12 (2nd head) uses 3.3kOhm, itd.
 
 In few months, the migration to OPC Unified Architecture is expected. Thus controls might change.
@@ -50,3 +58,17 @@ The internal com port provides update on Temperature and position
 RT :T12 28 0 0 0
 PO:X0.00:Y0.00:Z0.00
 
+
+## Software and Firmware version
+* Repetrel Ver. 42.024
+* Connected to EngineHR_Hydra_4.100f
+* Heads_Beds_103_4.004d
+
+
+## COM Ports
+* Internal COM -> Com4
+* external Com -> Com7
+* Baud -> 38400
+
+## Motor with gearbox
+* 11H20-0674S-PG100
