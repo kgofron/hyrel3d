@@ -6,144 +6,36 @@ extrainput   = Ignore;
 MaxInput = 0;
 terminator = LF;
 
-# Query firmware version
-getFwVer {
-	out "!#@%<crc16snd>";
-	in  "!%#s";
-}
-
-# Query/Update fillm parameters
-getFilmPar {
-	out "!\%A\$1?%<crc16snd>";
-	in  "!%#s";
-}
-
-setFilmPar {
-	out "!%(\$1Val:CmdA_Len-I.VAL)1s%(\$1Val:CmdA-Buf.VAL)s%<crc16snd>";
-	in  "!$A%<crc16rev>";
-}
-
-# Query/Update system 1 parameters
-getSys1Par {
-	out "!$B?%<crc16snd>";
-	in  "!%#s";
-}
-
-setSys1Par {
-	out "!%(\$1Val:CmdB_Len-I.VAL)1c%(\$1Val:CmdB-Buf.VAL)s%<crc16snd>";
-	in  "!$A%<crc16rev>";
-}
-
-# Query/Update system 2 parameters
-getSys2Par {
-	out "!$C?%<crc16snd>";
-	in  "!%#s";
-}
-
-setSys2Par {
-	out "!%(\$1Val:CmdC_Len-I.VAL)1c%(\$1Val:CmdC-Buf.VAL)s%<crc16snd>";
-	in  "!$A%<crc16rev>";
-}
-
-# Update active film
-setActvFilm {
-	out "!%(\$1Val:CmdD_Len-I.VAL)1cD%(\$1Num:ActvFilm-Sel.VAL)s%<crc16snd>";
-	in  "!$A%<crc16rev>";
-}
-
-# Query the number of channels installed
-getChanNum {
-	out "!#J%<crc16snd>";
-	in  "!\%A%d%<crc16rev>";
-}
-
-# Read the current rate for a sensor
-getSensorRate {
-	out "!\%L\$1?%<crc16snd>";
-	in  "!*A %f %<crc16rev>";
-}
-
-# Read the current average rate
-getAvgRate {
-	out "!#M%<crc16snd>";
-	in  "!*A %f %<crc16rev>";
-}
-
-# Read the current thickness for a sensor
-getSensorThick {
-	out "!$N\$1%<crc16snd>";
-	in  "!+A %f %<crc16rev>";
-}
-
-# Read the current average thickness
-getAvgThick {
-	out "!#O%<crc16snd>";
-	in  "!+A %f %<crc16rev>";
-}
-
-# Read the current frequency for a sensor
-getSensorFreq {
-	out "!$P\$1%<crc16snd>";
-	in  "!/A%f%<crc16rev>";
-}
-
-# Read cystal life for a sensor
-getSensorLife {
-	out "!$R\$1%<crc16snd>";
-	in  "!*A %f%<crc16rev>";
-}
-
-# Zero average thickness and rate
-zroThickRate {
-	out "!#S%<crc16snd>";
-	in  "!$A%<crc16rev>";
-}
-
-# Zero time
-zroTime {
-	out "!#T%<crc16snd>";
-	in  "!$A%<crc16rev>";
-}
-
-# Read the source shutter state
-getShutterSts {
-	out "!$U?%<crc16snd>";
-	in  "!\%A%{0|1}%<crc16rev>";
-}
-
-# Open/close the source shutter
-setShutterSts {
-	out "!$U%{0|1}%<crc16snd>";
-	in  "!$A%<crc16rev>";
-}
-
-# Read the status of the power up reset flag
-getPU_ResetFlag {
-	out "!#Y%<crc16snd>";
-	in  "!\%A%{0|1}%<crc16rev>";
-}
-
-# Default all fim and system parameters
-setDefault {
-	out "!#Z%<crc16snd>";
-	in  "!$A%<crc16rev>";
-}
-
 # Set heat on/off, 'M104 S50 T12\LF' / 'M104 S0 T12\LF'
-# '\9' is visible in internal commands as 1st char, and moves commands to the front of the queue. Do not use - No effect on EPICS.
+# '\9' is visible in COM4 internal commands as 1st char, and moves that command to the front of the queue. Do not use '\9' - No effect on EPICS.
 setHeat {
-	out "M%(\$1M-SP.VAL)d S%(\$1SetHeat.VAL)d T%(\$1H-SP.VAL)d";	
-}
-
-# Set heat on/off, '\9' is visible in internal commands as 1st char, and moves it to the front of the queue.
-setHeatMod {
-#	out "\9M%(\$1M-SP.VAL)d S%(\$1T-SP.VAL)d T%(\$1H-SP.VAL)d%<ncrc8>";
-#	out "\9M%(\$1M-SP.VAL)d S%(\$1T-SP.VAL)d T%(\$1H-SP.VAL)d";
-	out "M%(\$1M-SP.VAL)d S%(\$1SetHeat.VAL)d T%(\$1H-SP.VAL)d";
+	out "M104 S%(\$1\$2:Cmd-Heat.VAL)d \$2";	
 }
 
 # Set extrude	# 'M723/M722 T[head] S[rate] E[quantity] {P[store]}', e.g. 'M723 T12 S1000 E6400'
-setRate {
-	out "M%(\$1M7-SP.VAL)d T%(\$1H-SP.VAL)d S%(\$1SetRate.VAL)d E%(\$1Qty-SP.VAL)d";	
+#setRate {
+#	out "M%(\$1M7-SP.VAL)d T%(\$1H-SP.VAL)d S%(\$1SetRate.VAL)d E%(\$1Qty-SP.VAL)d";	
+#}
+
+# Set prime extrude	# 'M722/M721 T[head] S[rate] E[quantity] {P[store]}', e.g. 
+# PRIME: 'M722 S1000 E6400 P300I0 T12'
+# UNPRIME: 'M721 S1000 E6400 P-300I0 T12'
+setPrime {
+	out "M722 S%(\$1\$2:Cmd-Prime.VAL)d E%(\$1\$2:Val-pVal:SP.VAL)d P%(\$1\$2:Val-pDly:SP.VAL)dI0 \$2";	
 }
 
+setUnPrime {
+	out "M721 S%(\$1\$2:Cmd-uPrime.VAL)d E%(\$1\$2:Val-uVal:SP.VAL)d P%(\$1\$2:Val-uDly:SP.VAL)dI0 \$2";	
+}
+
+setRun {
+	out "M723 S%(\$1\$2:Cmd-Run.VAL)d E%(\$1\$2:Val-rVal:SP.VAL)d \$2";	
+}
+
+setStop {
+	out "M723 E0 S0 \$2";	
+}
+
+#Use I/O Intr processing. The record receives any input and processes only when the input matches.
+#read {in ">RT :T12 %d 0 0 0";}
+readTemp {in ">RT :T\$1\$2 %d 0 0 0";}
