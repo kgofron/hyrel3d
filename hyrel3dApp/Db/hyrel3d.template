@@ -1,0 +1,118 @@
+# Head = T12, where 1 is yoke, and 2 is head in that yoke
+# Unsolicited temperature ">RT :T12 25 0 0 0"
+record (ai, "$(Sys)$(Dev)T$(Yoke)$(Head):T-RB") {
+  field (DTYP, "stream")
+  field(EGU,  "C")
+  field(PREC, "0")    
+  field (INP, "@hyrel.proto readTemp($(Yoke),$(Head)) $(PORT) $(A)")
+  field (SCAN, "I/O Intr")
+}
+
+record(longout, "$(Sys)$(Dev)T$(Yoke)$(Head):Cmd-Heat")
+{
+	field(DESC, "Set Head Temperature")
+	field(EGU,  "C")
+	field(PREC, "0")    
+    field(DTYP, "stream")
+    field(OUT,  "@hyrel.proto setHeat($(Sys)$(Dev),T$(Yoke)$(Head)) $(PORT) $(A)")
+	field(DRVH, 100)
+}
+
+# Set extrusion quantity in motor steps, 200 x 32=6400 for full rotation
+# Motor: 11HS20-0674S-PG100, 100:1 gearbox
+record(ao, "$(Sys)$(Dev)T$(Yoke)$(Head):Val-pVal:SP")
+{
+	field(DESC, "Set amount")
+	field(EGU,  "uL")
+	field(PREC, "0")
+	field(DRVL, 1)
+#	field(DRVH, 6400)
+	field(VAL,  6400)
+}
+
+# Volume prime delay in msec
+record(ao, "$(Sys)$(Dev)T$(Yoke)$(Head):Val-pDly:SP")
+{
+	field(DESC, "Set amount")
+	field(EGU,  "ms")
+	field(PREC, "0")
+	field(DRVL, 1)
+#	field(DRVH, 6400)
+	field(VAL,  300)
+}
+
+# Volume prime - motor speed in steps
+record(longout, "$(Sys)$(Dev)T$(Yoke)$(Head):Cmd-Prime")
+{
+	field(DESC, "Set Prime Speed")
+	field(EGU,  "ct")
+	field(PREC, "0")    
+    field(DTYP, "stream")
+    field(OUT,  "@hyrel.proto setPrime($(Sys)$(Dev),T$(Yoke)$(Head)) $(PORT) $(A)")
+#	field(DRVH, 2000)
+}
+
+record(ao, "$(Sys)$(Dev)T$(Yoke)$(Head):Val-uVal:SP")
+{
+	field(DESC, "Set amount")
+	field(EGU,  "uL")
+	field(PREC, "0")
+	field(DRVL, 1)
+#	field(DRVH, 6400)
+	field(VAL,  6400)
+}
+
+# Volume unprime delay in msec
+record(ao, "$(Sys)$(Dev)T$(Yoke)$(Head):Val-uDly:SP")
+{
+	field(DESC, "Set amount")
+	field(EGU,  "ms")
+	field(PREC, "0")
+	field(DRVL, 1)
+#	field(DRVH, 6400)
+	field(VAL,  -300)
+}
+
+record(longout, "$(Sys)$(Dev)T$(Yoke)$(Head):Cmd-uPrime")
+{
+	field(DESC, "Set Prime Speed")
+	field(EGU,  "ct")
+	field(PREC, "0")    
+    field(DTYP, "stream")
+    field(OUT,  "@hyrel.proto setUnPrime($(Sys)$(Dev),T$(Yoke)$(Head)) $(PORT) $(A)")
+#	field(DRVH, 2000)
+}
+
+# Set run extrusion quantity in motor steps, 200 x 32=6400 for full rotation
+# Motor: 11HS20-0674S-PG100, 100:1 gearbox
+record(ao, "$(Sys)$(Dev)T$(Yoke)$(Head):Val-rVal:SP")
+{
+	field(DESC, "Set amount")
+	field(EGU,  "uL")
+	field(PREC, "0")
+	field(DRVL, 1)
+#	field(DRVH, 6400)
+	field(VAL,  6400)
+}
+
+# Volume run - motor speed in steps
+record(longout, "$(Sys)$(Dev)T$(Yoke)$(Head):Cmd-Run")
+{
+	field(DESC, "Set Prime Speed")
+	field(EGU,  "ct")
+	field(PREC, "0")    
+    field(DTYP, "stream")
+    field(OUT,  "@hyrel.proto setRun($(Sys)$(Dev),T$(Yoke)$(Head)) $(PORT) $(A)")
+#	field(DRVH, 2000)
+}
+
+# Stop run - motor speed in steps
+record(longout, "$(Sys)$(Dev)T$(Yoke)$(Head):Cmd-Stop")
+{
+	field(DESC, "Set Prime Speed")
+	field(EGU,  "ct")
+	field(PREC, "0")    
+    field(DTYP, "stream")
+    field(OUT,  "@hyrel.proto setStop($(Sys)$(Dev),T$(Yoke)$(Head)) $(PORT) $(A)")
+#	field(DRVH, 2000)
+}

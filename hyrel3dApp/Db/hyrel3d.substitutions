@@ -1,0 +1,4 @@
+file hyrel3d.template
+{ pattern { Sys		    , Dev,		    Yoke , Head  , PORT     , A		}
+	  { "XF:11ID-M3" 	, "{Hyrel:1}",	1    , 2	 , "HYREL"  , 0	    }
+}
