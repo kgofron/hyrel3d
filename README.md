@@ -72,3 +72,6 @@ PO:X0.00:Y0.00:Z0.00
 
 ## Motor with gearbox
 * 11H20-0674S-PG100
+
+## Videos
+http://hyrel3d.net/wiki/index.php/Videos
