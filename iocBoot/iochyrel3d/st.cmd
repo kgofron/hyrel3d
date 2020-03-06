@@ -15,7 +15,7 @@ epicsEnvSet("Sys",   			"XF:11ID-M3")
 epicsEnvSet("Dev",   			"{Hyrel:1}")
 epicsEnvSet("SYSPORT",  		"HYREL")
 epicsEnvSet("CTSYS",			"XF:11ID-CT")
-epicsEnvSet("TSADR",			"192.168.1.51")
+epicsEnvSet("TSADR",			"192.168.1.52")
 
 epicsEnvSet("EPICS_CA_AUTO_ADDR_LIST", 	"NO")
 epicsEnvSet("EPICS_CA_ADDR_LIST",	"192.168.1.255")
@@ -26,7 +26,7 @@ dbLoadDatabase("../../dbd/hyrel3d.dbd",0,0)
 hyrel3d_registerRecordDeviceDriver(pdbbase) 
 
 ## Configure serial port for PS controller
-drvAsynIPPortConfigure("$(SYSPORT)","192.168.1.51:4001")
+drvAsynIPPortConfigure("$(SYSPORT)","192.168.1.52:4001")
 
 ## Load record instances
 #dbLoadRecords("../../db/devhyrel3d.db","P=$(Sys),R=$(Dev),PORT=$(SYSPORT),A=0,user=kaz")
