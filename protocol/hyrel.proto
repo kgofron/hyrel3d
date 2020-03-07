@@ -13,7 +13,7 @@ setHeat {
 }
 
 # Set extrude	# 'M723/M722 T[head] S[rate] E[quantity] {P[store]}', e.g. 'M723 T12 S1000 E6400'
-#setRate {
+#setRate { 
 #	out "M%(\$1M7-SP.VAL)d T%(\$1H-SP.VAL)d S%(\$1SetRate.VAL)d E%(\$1Qty-SP.VAL)d";	
 #}
 
@@ -38,4 +38,13 @@ setStop {
 
 #Use I/O Intr processing. The record receives any input and processes only when the input matches.
 #read {in ">RT :T12 %d 0 0 0";}
-readTemp {in ">RT :T\$1\$2 %d 0 0 0";}
+readTemp1 {in ">RT :\$2 %d %*d %*d %*d";}
+readTemp2 {in ">RT :\$2 %d %*d %*d %*d :\$3 %(\$1\$3:T-RB.VAL)d %*d %*d %*d";}
+readTemp3 {in ">RT :\$2 %d %*d %*d %*d :\$3 %(\$1\$3:T-RB.VAL)d %*d %*d %*d :\$4 %(\$1\$4:T-RB.VAL)d %*d %*d %*d";}
+readTemp4 {in ">RT :\$2 %d %*d %*d %*d :\$3 %(\$1\$3:T-RB.VAL)d %*d %*d %*d :\$4 %(\$1\$4:T-RB.VAL)d %*d %*d %*d :\$5 %(\$1\$5:T-RB.VAL)d %*d %*d %*d";}
+readTemp5 {in ">RT :\$2 %d %*d %*d %*d :\$3 %(\$1\$3:T-RB.VAL)d %*d %*d %*d :\$4 %(\$1\$4:T-RB.VAL)d %*d %*d %*d :\$5 %(\$1\$5:T-RB.VAL)d %*d %*d %*d  :\$6 %(\$1\$6:T-RB.VAL)d %*d %*d %*d";}
+
+setFan {
+	out "M106 S%(\$1\$2:Cmd-Fan.VAL)d \$2";
+}
+

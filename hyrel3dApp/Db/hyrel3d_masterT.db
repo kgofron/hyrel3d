@@ -1,0 +1,20 @@
+# Head = T12, where 1 is yoke, and 2 is head in that yoke
+# Unsolicited temperature ">RT :T12 25 0 0 0"
+record (ai, "$(Sys)$(Dev)T$(Yoke)$(Head):T-RB") {
+  field (DTYP, "stream")
+  field(EGU,  "C")
+  field(PREC, "0")    
+  field (INP, "@hyrel.proto readTemp$(N)($(Sys)$(Dev),$(Heads)) $(PORT) $(A)")
+  field (SCAN, "I/O Intr")
+}
+
+# Fan control for MK1 head - motor speed in steps, FanOn=30, FanOff=0
+#record(longout, "$(Sys)$(Dev)T$(Yoke)$(Head):Cmd-Run")
+record(longout, "$(Sys)$(Dev)T11:Cmd-Fan")
+{
+	field(DESC, "Set Fan Speed")
+	field(EGU,  "rpm")
+  field(DTYP, "stream")
+#  field(OUT,  "@hyrel.proto setFan($(Sys)$(Dev),T$(Yoke)$(Head)) $(PORT) $(A)")
+  field(OUT,  "@hyrel.proto setFan($(Sys)$(Dev),T11) $(PORT) $(A)")
+}

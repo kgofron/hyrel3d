@@ -1,0 +1,7 @@
+# Head = T12, where 1 is yoke, and 2 is head in that yoke
+# Unsolicited temperature ">RT :T12 25 0 0 0"
+# Slave Temperature channels after lowest Yoke,Head combo
+record (ai, "$(Sys)$(Dev)T$(Yoke)$(Head):T-RB") {
+  field(EGU,  "C")
+  field(PREC, "0")    
+}

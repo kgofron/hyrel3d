@@ -43,7 +43,7 @@ P - do not perform the command, just store settings
 
 M723 T[head] S[rate] E[quantity] P[store]
 
-Try
+
 M722 T12 S1000 E6400
 
 
@@ -58,6 +58,11 @@ The internal com port provides update on Temperature and position
 RT :T12 28 0 0 0
 PO:X0.00:Y0.00:Z0.00
 
+* Multiple heads temperture reporting
+```
+>RT :T11 25 0 0 0 :T12 34 0 0 0
+```
+
 
 ## Software and Firmware version
 * Repetrel Ver. 42.024
@@ -70,7 +75,11 @@ PO:X0.00:Y0.00:Z0.00
 * external Com -> Com7
 * Baud -> 38400
 
-## Motor with gearbox
+## Heads
+* Krakatoa (has UV)
+* MK1 (has fan) On='M106 S30 T11', Off='M106 S0 T11'
+
+## Motor with gearbox (Krakatoa head)
 * 11H20-0674S-PG100
 
 ## Videos
