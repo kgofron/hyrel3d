@@ -10,14 +10,17 @@
 ##	  { "XF:11ID-M3" 	, "{Hyrel:1}",	1    , 2	 , "HYREL"  , 0	    }
 #}
 
-# 2 heads
+# 2 heads (T11=MK1, T12=Krakatoa)
 file hyrel3d_com.template
 { pattern { Sys		    , Dev,		    Yoke , Head  , PORT     , A		}
 	  { "XF:11ID-M3" 	, "{Hyrel:1}",	1    , 1	 , "HYREL"  , 0	    }
 	  { "XF:11ID-M3" 	, "{Hyrel:1}",	1    , 2	 , "HYREL"  , 0	    }
 }
 
+# (T12= slave temperature)
 file hyrel3d_slaveT.template
 { pattern { Sys		    , Dev,		    Yoke , Head  , PORT     , A		}
 	  { "XF:11ID-M3" 	, "{Hyrel:1}",	1    , 2	 , "HYREL"  , 0	    }
 }
+
+# Manually include database(s) in st.cmd for fan control of MK1 heads

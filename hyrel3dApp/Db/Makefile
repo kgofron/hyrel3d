@@ -10,6 +10,7 @@ include $(TOP)/configure/CONFIG
 DB += asynRecord.db
 DB += hyrel3d.db
 DB += hyrel3d_masterT.db
+DB += hyrel3d_fan.db
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
