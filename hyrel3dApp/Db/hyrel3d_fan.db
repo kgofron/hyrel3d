@@ -2,7 +2,7 @@
 record(longout, "$(Sys)$(Dev)T$(Yoke)$(Head):Cmd-Fan")
 {
 	field(DESC, "Set Fan Speed")
-	field(EGU,  "rpm")
+	field(EGU,  "Hz")
     field(DTYP, "stream")
 	field(DRVH, 35)
     field(OUT,  "@hyrel.proto setFan($(Sys)$(Dev),T$(Yoke)$(Head)) $(PORT) $(A)")
