@@ -54,9 +54,11 @@ In few months, the migration to OPC Unified Architecture is expected. Thus contr
 
 ### Unsolicitated commands
 The internal com port provides update on Temperature and position
-
+* Single head temperature reporting
+```
 RT :T12 28 0 0 0
 PO:X0.00:Y0.00:Z0.00
+```
 
 * Multiple heads temperture reporting
 ```
