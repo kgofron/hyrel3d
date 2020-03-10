@@ -1,4 +1,6 @@
-# ThingyAggregatorIOC
+Hyrel 3D printer
+===================
+
 Author: Kazimierz Gofron  
 Created: March 5, 2020  
 Last Updated: March 5, 2020   
@@ -86,3 +88,8 @@ PO:X0.00:Y0.00:Z0.00
 
 ## Videos
 http://hyrel3d.net/wiki/index.php/Videos
+
+
+Additional information:
+* [Documentation](https://kgofron.github.io/master/hyrel3d/hyrel3d.html)
+* [Release notes](RELEASE.md)
