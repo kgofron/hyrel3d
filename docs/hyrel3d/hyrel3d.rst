@@ -45,10 +45,10 @@ The following are the additional two images showing few g-codes and resistor set
 Manuals
 -------
 	    
-.. image::  1.Hyrel_Quickstart.pdf	   
-	    2.Hyrel_Intro_EMO.pdf
-	    3.Hyrel_MK1_Single.pdf
-	    4.Hyrel_MK1_Multiple.pdf
+.. image:: 1.Hyrel_Quickstart.pdf	   
+.. image:: 2.Hyrel_Intro_EMO.pdf
+.. image:: 3.Hyrel_MK1_Single.pdf
+.. image:: 4.Hyrel_MK1_Multiple.pdf
 
 	    
 Known issues
