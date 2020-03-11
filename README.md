@@ -91,5 +91,6 @@ http://hyrel3d.net/wiki/index.php/Videos
 
 
 Additional information:
+* [Hyrel ioc] (https://github.com/kgofron/hyrel3d/blob/master/docs/hyrel3d/hyrel3d.rst)
 * [Documentation](https://kgofron.github.io/master/hyrel3d/hyrel3d.html)
 * [Release notes](RELEASE.md)
