@@ -2,7 +2,7 @@
 hyrel3d
 ======================================
 
-:author: Kaz Gofron, Brookhaven National Laboratory
+:author: Kazimierz Gofron, Brookhaven National Laboratory
 
 .. contents:: Contents
 
@@ -42,8 +42,15 @@ The following are the additional two images showing few g-codes and resistor set
 .. figure:: Resistors.JPG
     :align: center
 
+Manuals
+-------
+	    
+.. image::  1.Hyrel_Quickstart.pdf	   
+	    2.Hyrel_Intro_EMO.pdf
+	    3.Hyrel_MK1_Single.pdf
+	    4.Hyrel_MK1_Multiple.pdf
 
-
+	    
 Known issues
 ------------    
 - The Hyrel 3D printer has many features and currently has no calibration from motor steps to uL of volume. 
