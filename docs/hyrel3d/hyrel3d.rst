@@ -13,7 +13,7 @@ hyrel3d
 Overview
 --------
 
-This is an :docs:`../index`  driver for HYREL 3D  printer with MK1 and Krakatoa heads.
+This is an :doc:`../index`  driver for HYREL 3D  printer with MK1 and Krakatoa heads.
 
 
 CSS screens
