@@ -15,6 +15,13 @@ HYREL3D printer
 
 The initial configuration used FTDI USB->RS232 (38400 baud, 8/1/none) adapter, connected to MOXA.
 
+* COM port
+  * COM6 Apply PING {in Repetel}
+  * XMT/RCV, Log (upper tab)
+  * M104 T11 S50 {set temperature to 50C}
+
+* COM external
+
 Command to turn heat off on the 2nd head
 M104 S0 T12\LF
 
