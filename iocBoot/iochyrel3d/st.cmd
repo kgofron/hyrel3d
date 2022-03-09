@@ -4,6 +4,7 @@
 #- everywhere it appears in this file
 
 < envPaths
+< /epics/common/xf11id-m3-netsetup.cmd
 
 ## Location of stream protocol files
 epicsEnvSet("ENGINEER",                 "kgofron x5283")
