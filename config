@@ -1,4 +1,4 @@
 NAME=hyrel3d
 USER=softioc
 PORT=4003
-HOST=xf11id-m3
+HOST=xf11id-mobile3
