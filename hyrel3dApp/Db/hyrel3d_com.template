@@ -4,7 +4,7 @@ record(longout, "$(Sys)$(Dev)T$(Yoke)$(Head):Cmd-Heat")
 	field(EGU,  "C")
     field(DTYP, "stream")
     field(OUT,  "@hyrel.proto setHeat($(Sys)$(Dev),T$(Yoke)$(Head)) $(PORT) $(A)")
-	field(DRVH, 100)
+#	field(DRVH, 100)
 }
 
 # Set extrusion quantity in motor steps, 200 x 32=6400 for full rotation
