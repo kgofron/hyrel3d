@@ -35,7 +35,7 @@ drvAsynIPPortConfigure("$(SYSPORT)","192.168.11.55:4001")
 #dbLoadRecords("../../db/devhyrel3d.db","P=$(Sys),R=$(Dev),PORT=$(SYSPORT),A=0")
 dbLoadRecords("../../db/hyrel3d.db")
 # 1 head (T12 = Krakatoa), N=1
-#dbLoadRecords("../../db/hyrel3d_masterT.db","Sys=$(Sys),Dev=$(Dev),Yoke=1,Head=2,N=1,Heads='T12',PORT=$(SYSPORT),A=0")
+dbLoadRecords("../../db/hyrel3d_masterT.db","Sys=$(Sys),Dev=$(Dev),Yoke=1,Head=2,N=1,Heads='T12',PORT=$(SYSPORT),A=0")
 
 # 1 head (T11 = MK1), N=1
 dbLoadRecords("../../db/hyrel3d_masterT.db","Sys=$(Sys),Dev=$(Dev),Yoke=1,Head=1,N=1,Heads='T11',PORT=$(SYSPORT),A=0")
