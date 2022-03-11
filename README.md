@@ -91,6 +91,7 @@ PO:X0.00:Y0.00:Z0.00
 ## Heads
 * Krakatoa (has UV)
 * MK1 (has fan) On='M106 S30 T11', Off='M106 S0 T11'
+* MK1-450 (has 2 fans). One is always on, the other is controlled by PV.
 
 ## Motor with gearbox (Krakatoa head)
 * 11H20-0674S-PG100
