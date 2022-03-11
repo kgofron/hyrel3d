@@ -101,7 +101,7 @@ http://hyrel3d.net/wiki/index.php/Videos
 ## Manual G-code M723 Set Flow
 https://hyrel3d.com/wiki/index.php/Gcode#M723_Set_Manual_Flow
 
-Additional information:
+### Additional information:
 * [Hyrel_ioc](https://github.com/kgofron/hyrel3d/blob/master/docs/hyrel3d/hyrel3d.rst)
 * [Documentation](https://kgofron.github.io/master/hyrel3d/hyrel3d.html)
 * [Release notes](RELEASE.md)
