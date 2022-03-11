@@ -54,7 +54,9 @@ M723 T[head] S[rate] E[quantity] P[store]
 
 
 M722 T12 S1000 E6400
-
+M723 S5000 E64000 T12
+M721 S5000 E64000 P-300I0 T12
+M723 S5000 E80000 T12
 
 NOTE: Remember to install resistors for each head connector on Canbus.
 The T12 (2nd head) uses 3.3kOhm, itd.
