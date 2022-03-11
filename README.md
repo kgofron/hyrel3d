@@ -98,7 +98,7 @@ PO:X0.00:Y0.00:Z0.00
 ## Videos
 http://hyrel3d.net/wiki/index.php/Videos
 
-### Manual G-code M723 Set Flow
+### Manual G-code: M723 Set Flow
 https://hyrel3d.com/wiki/index.php/Gcode#M723_Set_Manual_Flow
 
 ### Additional information:
