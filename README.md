@@ -98,6 +98,8 @@ PO:X0.00:Y0.00:Z0.00
 ## Videos
 http://hyrel3d.net/wiki/index.php/Videos
 
+## Manual G-code M723 Set Flow
+https://hyrel3d.com/wiki/index.php/Gcode#M723_Set_Manual_Flow
 
 Additional information:
 * [Hyrel_ioc](https://github.com/kgofron/hyrel3d/blob/master/docs/hyrel3d/hyrel3d.rst)
